@@ -3,7 +3,7 @@
 
 package:
   name: "{{ data.get('name')|lower }}"
-  version: "{{ data.get('version') }}"
+  version: "{{ data.get('version') }}{{ environ.get('VERSION_SUFFIX', '') }}"
 
 source:
   url: https://downloads.openmicroscopy.org/omero/{{ data.get('version') }}/artifacts/OMERO.py-{{ data.get('version') }}-ice36-b{{ OMERO_BUILD }}.zip
@@ -11,6 +11,8 @@ source:
 
 build:
   number: 0
+  script_env:
+    - VERSION_SUFFIX
 
 requirements:
   host:
