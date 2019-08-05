@@ -11,7 +11,7 @@ matrix:
 env:
   global:
     - PACKAGE_NAME=omero-python
-    - CONDA_CHANNEL=manics
+    - REQUIREMENTS_CHANNEL=manics
     - PATH="$HOME/miniconda/bin:$PATH"
 
 install:
@@ -31,7 +31,7 @@ script:
     else
       export VERSION_SUFFIX="";
     fi
-  - conda build -c ${CONDA_CHANNEL} --python $PYTHON .
+  - conda build -c ${REQUIREMENTS_CHANNEL} --python $PYTHON .
 
 deploy:
   - provider: script
